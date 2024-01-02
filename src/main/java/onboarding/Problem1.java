@@ -13,6 +13,9 @@ class Problem1 {
         int crongLeftPage = crong.get(0);
         int crongRightPage = crong.get(1);
 
+        if (checkPage(pobiLeftPage) || checkPage(pobiRightPage) || checkPage(crongLeftPage) || checkPage(crongRightPage)) {
+            return -1;
+        }
         if (checkOdd(pobiLeftPage) || checkEven(pobiRightPage) || checkOdd(crongLeftPage) || checkEven(crongRightPage)) {
             return -1;
         }
@@ -26,6 +29,10 @@ class Problem1 {
 
         int answer = getGameResult(pobiMax, crongMax);
         return answer;
+    }
+
+    public static boolean checkPage(int page) {
+        return page >= 1 && page <= 400;
     }
 
     public static boolean checkOdd(int page) { // 홀수 확인

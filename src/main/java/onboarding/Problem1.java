@@ -21,7 +21,10 @@ class Problem1 {
         int crongLeftMax = selectMaxBetweenSumAndMul(getSum(crongLeftPage), getMul(crongLeftPage));
         int crongRightMax = selectMaxBetweenSumAndMul(getSum(crongRightPage), getMul(crongRightPage));
 
-        int answer = Integer.MAX_VALUE;
+        int pobiMax = selectMaxBetweenLeftAndRight(pobiLeftMax, pobiRightMax);
+        int crongMax = selectMaxBetweenLeftAndRight(crongLeftMax, crongRightMax);
+
+        int answer =Integer.MAX_VALUE;
         return answer;
     }
 
@@ -58,5 +61,8 @@ class Problem1 {
         return mul;
     }
 
+    public static int selectMaxBetweenLeftAndRight(int left, int right) {
+        return Math.max(left, right);
+    }
 
 }

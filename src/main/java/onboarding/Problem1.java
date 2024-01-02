@@ -52,7 +52,7 @@ class Problem1 {
         for (int i = 2; i >= 0; i--) {
             int digit = (int) (page / Math.pow(10, i));
             sum += digit;
-            page %= 10;
+            page %= Math.pow(10, i);
         }
         return sum;
     }
@@ -63,7 +63,7 @@ class Problem1 {
             int digit = (int) (page / Math.pow(10, i));
             digit = (digit == 0) ? 1 : digit;
             mul *= digit;
-            page %= 10;
+            page %= Math.pow(10, i);
         }
         return mul;
     }
@@ -73,7 +73,7 @@ class Problem1 {
     }
 
     public static int getGameResult(int pobi, int crong) {
-        return pobi > crong ? 1 : pobi == crong ? 0 : 2;
+        return pobi > crong ? 1 : (pobi == crong ? 0 : 2);
     }
 
 }

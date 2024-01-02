@@ -24,7 +24,7 @@ class Problem1 {
         int pobiMax = selectMaxBetweenLeftAndRight(pobiLeftMax, pobiRightMax);
         int crongMax = selectMaxBetweenLeftAndRight(crongLeftMax, crongRightMax);
 
-        int answer =Integer.MAX_VALUE;
+        int answer = getGameResult(pobiMax, crongMax);
         return answer;
     }
 
@@ -63,6 +63,10 @@ class Problem1 {
 
     public static int selectMaxBetweenLeftAndRight(int left, int right) {
         return Math.max(left, right);
+    }
+
+    public static int getGameResult(int pobi, int crong) {
+        return pobi > crong ? 1 : pobi == crong ? 0 : 2;
     }
 
 }

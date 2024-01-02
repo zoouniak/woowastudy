@@ -13,10 +13,10 @@ class Problem1 {
         int crongLeftPage = crong.get(0);
         int crongRightPage = crong.get(1);
 
-        if (checkPage(pobiLeftPage) || checkPage(pobiRightPage) || checkPage(crongLeftPage) || checkPage(crongRightPage)) {
+        if (!checkPage(pobiLeftPage) || !checkPage(pobiRightPage) || !checkPage(crongLeftPage) || !checkPage(crongRightPage)) {
             return -1;
         }
-        if (checkOdd(pobiLeftPage) || checkEven(pobiRightPage) || checkOdd(crongLeftPage) || checkEven(crongRightPage)) {
+        if (!checkOdd(pobiLeftPage) || !checkEven(pobiRightPage) || !checkOdd(crongLeftPage) || !checkEven(crongRightPage)) {
             return -1;
         }
         int pobiLeftMax = selectMaxBetweenSumAndMul(getSum(pobiLeftPage), getMul(pobiLeftPage));

@@ -27,14 +27,10 @@ class Problem1 {
     }
 
     public static boolean isValidPage(List<Integer> pages) {
-        if (pages.size() != 2)
-            return false;
-        if (!checkPage(pages.get(0)) || !checkPage(pages.get(1)))
-            return false;
-        if (!checkOdd(pages.get(0)) || !checkEven(pages.get(1)))
-            return false;
-        if (pages.get(0) + 1 != pages.get(1))
-            return false;
+        if (pages.size() != 2) return false;
+        if (!checkPage(pages.get(0)) || !checkPage(pages.get(1))) return false;
+        if (!checkOdd(pages.get(0)) || !checkEven(pages.get(1))) return false;
+        if (pages.get(0) + 1 != pages.get(1)) return false;
 
         return true;
     }

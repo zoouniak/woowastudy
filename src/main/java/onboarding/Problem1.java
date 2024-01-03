@@ -4,7 +4,6 @@ import java.util.List;
 
 class Problem1 {
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        // 리스트 페이지가 2개가 아닌 경우
 
         int pobiLeftPage = pobi.get(0);
         int pobiRightPage = pobi.get(1);
@@ -27,9 +26,13 @@ class Problem1 {
     }
 
     public static boolean isValidPage(List<Integer> pages) {
+        // 페이지 번호의 개수가 2장이 아닐 때
         if (pages.size() != 2) return false;
+        // 페에지가 잘못 입력되었을 때 (1~400 사이의 값이 아닌 경우)
         if (!checkPage(pages.get(0)) || !checkPage(pages.get(1))) return false;
+        // 홀수/짝수 페이지가 아닐 때
         if (!checkOdd(pages.get(0)) || !checkEven(pages.get(1))) return false;
+        // 왼쪽 페이지 +1 != 오른쪽 페이지일때
         if (pages.get(0) + 1 != pages.get(1)) return false;
 
         return true;
@@ -47,10 +50,20 @@ class Problem1 {
         return (page % 2) == 0;
     }
 
+    /*
+     * 곱한 수와 더한 수 중 더 큰 값을 반환하는 함수
+     * @param 더한 수, 곱한 수
+     * @return 두 값 중 큰 수
+     */
     public static int selectMaxBetweenSumAndMul(int sum, int mul) {
         return Math.max(sum, mul);
     }
 
+    /*
+     * 페이지 번호의 각 자릿수 숫자를 더한 수를 반환하는 함수
+     * @param 페이지 빈호
+     * @return 더한 수
+     */
     public static int getSum(int page) {
         int sum = 0;
         for (int i = 2; i >= 0; i--) {
@@ -61,6 +74,11 @@ class Problem1 {
         return sum;
     }
 
+    /*
+     * 페이지 번호의 각 자릿수 숫자를 곱한 수를 반환하는 함수
+     * @param 페이지 빈호
+     * @return 곱한 수
+     */
     public static int getMul(int page) {
         int mul = 1;
         for (int i = 2; i >= 0; i--) {
@@ -72,10 +90,20 @@ class Problem1 {
         return mul;
     }
 
+    /*
+     * 왼쪽 큰 수와 오른쪽 큰 수 중 큰 값을 반환하는 함수
+     * @param 왼쪽 큰 수, 오른쪽 큰 수
+     * @return 두 값 중 큰 값
+     */
     public static int selectMaxBetweenLeftAndRight(int left, int right) {
         return Math.max(left, right);
     }
 
+    /*
+     * 게임 결과를 반환하는 함수
+     * @param 포비의 큰 수, 크롱의 큰 수
+     * @return 포비가 이겼을 때 1, 크롱이 이겼을 때 2, 비겼을 때 0
+     */
     public static int getGameResult(int pobi, int crong) {
         return pobi > crong ? 1 : (pobi == crong ? 0 : 2);
     }

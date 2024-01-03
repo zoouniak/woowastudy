@@ -5,20 +5,15 @@ import java.util.List;
 class Problem1 {
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         // 리스트 페이지가 2개가 아닌 경우
-        if (pobi.size() != 2 || crong.size() != 2) {
-            return -1;
-        }
+
         int pobiLeftPage = pobi.get(0);
         int pobiRightPage = pobi.get(1);
         int crongLeftPage = crong.get(0);
         int crongRightPage = crong.get(1);
 
-        if (!checkPage(pobiLeftPage) || !checkPage(pobiRightPage) || !checkPage(crongLeftPage) || !checkPage(crongRightPage)) {
+        if (!isValidPage(pobi) || !isValidPage(crong))
             return -1;
-        }
-        if (!checkOdd(pobiLeftPage) || !checkEven(pobiRightPage) || !checkOdd(crongLeftPage) || !checkEven(crongRightPage)) {
-            return -1;
-        }
+
         int pobiLeftMax = selectMaxBetweenSumAndMul(getSum(pobiLeftPage), getMul(pobiLeftPage));
         int pobiRightMax = selectMaxBetweenSumAndMul(getSum(pobiRightPage), getMul(pobiRightPage));
         int crongLeftMax = selectMaxBetweenSumAndMul(getSum(crongLeftPage), getMul(crongLeftPage));
@@ -29,6 +24,19 @@ class Problem1 {
 
         int answer = getGameResult(pobiMax, crongMax);
         return answer;
+    }
+
+    public static boolean isValidPage(List<Integer> pages) {
+        if (pages.size() != 2)
+            return false;
+        if (!checkPage(pages.get(0)) || !checkPage(pages.get(1)))
+            return false;
+        if (!checkOdd(pages.get(0)) || !checkEven(pages.get(1)))
+            return false;
+        if (pages.get(0) + 1 != pages.get(1))
+            return false;
+
+        return true;
     }
 
     public static boolean checkPage(int page) {

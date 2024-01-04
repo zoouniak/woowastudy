@@ -83,7 +83,6 @@ class Problem1 {
         int mul = 1;
         for (int i = 2; i >= 0; i--) {
             int digit = (int) (page / Math.pow(10, i));
-            digit = (digit == 0) ? 1 : digit;
             mul *= digit;
             page %= Math.pow(10, i);
         }
